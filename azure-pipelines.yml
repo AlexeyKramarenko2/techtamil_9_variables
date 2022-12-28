@@ -1,0 +1,20 @@
+#variables
+
+variables:
+ variable1: 'one'
+
+trigger:
+- main
+
+pool: #Demo
+  vmImage: ubuntu-latest
+
+steps:
+- script: |
+    #template expression
+     echo 'template - ${{ variables.variable1 }}'
+    #macro
+     echo 'macro - $(variable1)'
+    #runtime
+     echo 'runtime - $[variables.variable1]'
+  displayName: 'Variables'
